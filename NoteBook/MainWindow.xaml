@@ -6,56 +6,31 @@
         xmlns:local="clr-namespace:NoteBook"
         mc:Ignorable="d"
         Title="Ежедневник" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem Header="Календарь">
                 <Grid Background="White">
-                    <Grid Background="#FFE5E5E5" ShowGridLines="True" Height="277" Margin="26,24,302,105">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" TextAlignment="Center">ПН</TextBlock>
-                        <TextBlock Grid.Column="1" TextAlignment="Center">ВТ</TextBlock>
-                        <TextBlock Grid.Column="2" TextAlignment="Center">СР</TextBlock>
-                        <TextBlock Grid.Column="3" TextAlignment="Center">ЧТ</TextBlock>
-                        <TextBlock Grid.Column="4" TextAlignment="Center">ПТ</TextBlock>
-                        <TextBlock Grid.Column="5" TextAlignment="Center">СБ</TextBlock>
-                        <TextBlock Grid.Column="6" TextAlignment="Center">ВС</TextBlock>
-                    </Grid>
-                    <Button Content="Добавить задачу" HorizontalAlignment="Left" Margin="620,24,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Добавить задачу" HorizontalAlignment="Left" Margin="620,24,0,0" VerticalAlignment="Top">
+                    </Button>
                 </Grid>
 
             </TabItem>
             <TabItem Header="Настройка типов задач">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="127*"/>
-                        <ColumnDefinition Width="270*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="219*"/>
+                        <ColumnDefinition Width="540*"/>
                     </Grid.ColumnDefinitions>
-                    <ListView Name="IssueTypeList" Margin="25,23,291,77" Grid.ColumnSpan="2" >
+                    <ListView Name="IssueTypeList" Margin="25,23,38,77" Grid.ColumnSpan="2" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Название типа</GridViewColumn>
@@ -65,7 +40,7 @@
                         <ListView.Resources>
                         </ListView.Resources>
                     </ListView>
-                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="388,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top" Grid.Column="2" Click="ButtonBase_OnClick"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Активность">
