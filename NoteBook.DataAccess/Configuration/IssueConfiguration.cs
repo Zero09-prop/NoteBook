@@ -10,6 +10,10 @@ namespace NoteBook.DataAccess.Configuration
         public void Configure(EntityTypeBuilder<Issue> builder)
         {
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder
+                .HasOne(p => p.Type)
+                .WithMany(t => t.Issues)
+                .OnDelete(DeleteBehavior.SetNull);
             builder.HasData(
                 new[]
                 {
