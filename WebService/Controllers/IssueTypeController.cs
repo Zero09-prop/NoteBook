@@ -10,7 +10,12 @@ namespace NoteBook.WebService.Controllers
     [Route("[controller]")]
     public class IssueTypeController : ControllerBase
     {
-        private readonly IssueTypeRepo _db = new IssueTypeRepo();
+        private readonly IssueTypeRepo _db;
+
+        public IssueTypeController()
+        {
+            _db = new IssueTypeRepo();
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IssueType>>> Get()

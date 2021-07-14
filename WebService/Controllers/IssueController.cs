@@ -11,8 +11,12 @@ namespace NoteBook.WebService.Controllers
     [Route("[controller]")]
     public class IssueController : ControllerBase
     {
-        private readonly IssueRepo _db = new IssueRepo();
+        private readonly IssueRepo _db;
 
+        public IssueController()
+        {
+            _db = new IssueRepo();
+        }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Issue>>> Get()
         {
